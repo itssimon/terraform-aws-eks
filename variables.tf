@@ -338,3 +338,18 @@ variable "cluster_encryption_config" {
   }))
   default = []
 }
+
+variable "fargate_profiles" {
+  description = "Fargate profiles"
+  type = map(object({
+    namespace = string
+    labels    = map(string)
+  }))
+  default = {}
+}
+
+variable "create_fargate_pod_execution_role" {
+  description = "Controls if the EKS Fargate pod execution IAM role should be created."
+  type        = bool
+  default     = false
+}
